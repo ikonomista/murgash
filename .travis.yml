@@ -13,6 +13,8 @@ after_success:
 notifications:
   email:
     on_failure: always
+before_cache:
+  - rm -rf $GOPATH/src/github.com/VeloclubMammut/murgash
 cache:
   directories:
     - $GOPATH/src
