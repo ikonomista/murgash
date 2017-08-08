@@ -6,9 +6,10 @@ addons:
   ssh_known_hosts: murgash.veloclubmammut.com
 after_success:
   - eval "$(ssh-agent -s)"
-  - chmod 600 /tmp/deploy_rsa
-  - ssh-add /tmp/deploy_rsa
+  - chmod 600 /tmp/deploy_key
+  - ssh-add /tmp/deploy_key
   - rsync -az $TRAVIS_BUILD_DIR murgash@murgash.veloclubmammut.com:/tmp/foo
+  - rm /tmp/deploy_key
 notifications:
   email:
     on_failure: always
