@@ -2,7 +2,8 @@ language: go
 install: go get -v github.com/spf13/hugo
 script:
   - hugo -D
-addons: ssh_known_hosts murgash.veloclubmammut.com
+addons: 
+  ssh_known_hosts: murgash.veloclubmammut.com
 after_success:
   - rsync -az $TRAVIS_BUILD_DIR murgash@murgash.veloclubmammut.com:/tmp/foo
 notifications:
