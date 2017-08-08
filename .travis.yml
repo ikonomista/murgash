@@ -8,7 +8,7 @@ after_success:
   - eval "$(ssh-agent -s)"
   - chmod 600 /tmp/deploy_key
   - ssh-add /tmp/deploy_key
-  - rsync -az $TRAVIS_BUILD_DIR murgash@murgash.veloclubmammut.com:/tmp/foo
+  - rsync -az $TRAVIS_BUILD_DIR/public/ murgash@murgash.veloclubmammut.com:/var/www/html/murgash
   - rm /tmp/deploy_key
 notifications:
   email:
